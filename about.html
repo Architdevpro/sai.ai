@@ -4,44 +4,81 @@
     <meta charset="UTF-8">
     <title>About SAI - Smart Artificial Intelligence</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { font-family: Arial, sans-serif; background: #f9f9f9; color: #222; margin: 0; padding: 0; }
-        .container { max-width: 900px; margin: 40px auto; background: #fff; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);}
-        h1, h2 { color: #26358c; }
-        .founders { font-weight: bold; margin-bottom: 10px; }
-        ul { margin-left: 24px; }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>About SAI</h1>
-        <p>
-            <strong>SAI</strong> (Smart Artificial Intelligence) is an innovative educational platform designed to make learning more interactive, personalized, and effective for students in India, especially for those in Classes 9-12.
+<body class="bg-gradient-to-br from-blue-50 to-purple-100 min-h-screen">
+
+<!-- Navigation Bar -->
+<nav class="bg-white border-b border-gray-200 fixed w-full z-20 top-0 left-0 shadow">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="home.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-bold text-blue-700">SAI Assistant</span>
+        </a>
+        <button id="menu-toggle" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+                <li><a href="home.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Home</a></li>
+                <li><a href="about.html" class="block py-2 px-3 text-blue-700 font-semibold rounded bg-blue-100 md:bg-transparent md:text-blue-700">About</a></li>
+                <li><a href="features.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Features</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="max-w-3xl mx-auto pt-32 pb-16 px-6">
+    <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="flex items-center mb-6">
+            <img src="https://img.icons8.com/color/96/artificial-intelligence.png" alt="AI icon" class="w-16 h-16 mr-4">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-blue-700">About SAI</h1>
+        </div>
+        <p class="text-lg text-gray-700 mb-6">
+            <span class="font-bold text-blue-700">SAI</span> (Smart Artificial Intelligence) is an innovative educational platform designed to make learning more interactive, personalized, and effective for students in India, especially for those in Classes 9-12.
         </p>
-        <p>
-            Founded by <span class="founders">Archit Chaudhary</span> and <span class="founders">Aryan Veer Singh</span>, SAI was created with a vision to empower students, teachers, and parents to achieve academic excellence through modern technology and AI-driven tools.
-        </p>
-        <h2>Our Mission</h2>
-        <p>
+        <div class="mb-6">
+            <h2 class="text-xl font-bold text-purple-700 mb-2">Founders</h2>
+            <div class="flex items-center gap-6 text-gray-800">
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 rounded-full font-semibold">
+                    <img src="https://img.icons8.com/fluency/32/user-male-circle.png" class="h-6 w-6"> Archit Chaudhary
+                </span>
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-purple-50 rounded-full font-semibold">
+                    <img src="https://img.icons8.com/fluency/32/user-male-circle.png" class="h-6 w-6"> Aryan Veer Singh
+                </span>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold text-blue-600 mt-8 mb-3">Our Mission</h2>
+        <p class="text-gray-700 mb-6">
             We aim to revolutionize education by providing adaptive learning experiences, real-time support, and comprehensive analytics for all stakeholders—students, teachers, and parents.
         </p>
-        <h2>What Makes SAI Unique?</h2>
-        <ul>
+
+        <h2 class="text-xl font-bold text-purple-700 mb-3">What Makes SAI Unique?</h2>
+        <ul class="list-disc ml-6 text-gray-700 mb-8 space-y-2">
             <li>Personalized learning experiences tailored to each student’s style.</li>
             <li>Coverage of CBSE, ICSE, and various state board curricula.</li>
             <li>Quick performance tracking and instant doubt resolution.</li>
             <li>Gamified elements to keep students engaged and motivated.</li>
             <li>Industry-first real-time AI help during assessments.</li>
         </ul>
-        <h2>Who Can Benefit from SAI?</h2>
-        <ul>
+
+        <h2 class="text-xl font-bold text-blue-600 mb-3">Who Can Benefit from SAI?</h2>
+        <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-8">
             <li><strong>Students (Classes 9-12):</strong> Preparing for board exams with tailored support and interactive tools.</li>
             <li><strong>Teachers & Educators:</strong> Managing student progress and gaining insights into class performance.</li>
             <li><strong>Parents:</strong> Tracking academic growth and staying updated with real-time analytics.</li>
         </ul>
-        <p>
-            SAI is all about making learning easier, more efficient, and a lot more enjoyable. If you have any questions or want more details, feel free to reach out. We’re here to help you succeed!
-        </p>
+        <div class="bg-blue-50 rounded-xl p-5 flex items-center gap-4">
+            <img src="https://img.icons8.com/color/48/help.png" alt="Help">
+            <p class="text-blue-700 font-medium">
+                SAI is all about making learning easier, more efficient, and a lot more enjoyable. If you have any questions or want more details, feel free to reach out. We’re here to help you succeed!
+            </p>
+        </div>
     </div>
+</div>
 </body>
 </html>
