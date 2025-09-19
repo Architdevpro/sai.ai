@@ -38,15 +38,39 @@
     </div>
 </nav>
 
+<!-- Sample Paper Generator UI -->
+<div class="max-w-4xl mx-auto w-full px-4 py-6 pt-28">
+  <div class="bg-white rounded-lg shadow p-6 mb-6">
+    <h2 class="text-xl font-bold mb-3 text-blue-700">📝 Generate Sample Paper</h2>
+    <form id="samplePaperForm" class="flex gap-4 flex-wrap items-center mb-4">
+      <select id="subjectSelect" class="border rounded px-3 py-2">
+        <option value="">Subject</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="English">English</option>
+        <option value="Social Studies">Social Studies</option>
+      </select>
+      <select id="gradeSelect" class="border rounded px-3 py-2">
+        <option value="">Grade</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Generate</button>
+    </form>
+    <div id="samplePaperResult" class="mt-4"></div>
+  </div>
+</div>
 
 <!-- Chat Container -->
-<main class="flex-1 max-w-4xl mx-auto w-full px-4 py-6 pt-28 pb-24">
+<main class="flex-1 max-w-4xl mx-auto w-full px-4 py-6 pb-24">
     <div id="chatContainer" class="space-y-6 mb-6">
         <!-- Welcome Message -->
         <div class="flex items-start space-x-3 message-enter">
             <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072[...]
                 </svg>
             </div>
             <div class="bg-white rounded-lg px-4 py-3 shadow-sm border border-gray-200 max-w-3xl">
@@ -93,9 +117,40 @@
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('messageInput').focus();
     });
+
+    // --- Sample Paper Generator JS ---
+    document.getElementById('samplePaperForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const subject = document.getElementById('subjectSelect').value;
+      const grade = document.getElementById('gradeSelect').value;
+      if (!subject || !grade) {
+        document.getElementById('samplePaperResult').innerHTML = "<span class='text-red-600'>Please select both subject and grade.</span>";
+        return;
+      }
+      document.getElementById('samplePaperResult').innerHTML = "Generating sample paper...";
+      try {
+        const res = await fetch('/api/generate-sample-paper', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ subject, grade })
+        });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        let html = `<div class='mb-2 font-bold text-lg'>${data.subject} (Grade ${data.grade})</div>`;
+        html += "<ol class='list-decimal ml-6'>";
+        for (const q of data.questions) {
+          html += `<li class='mb-2'>${q}</li>`;
+        }
+        html += "</ol>";
+        document.getElementById('samplePaperResult').innerHTML = html;
+      } catch (err) {
+        document.getElementById('samplePaperResult').innerHTML = `<span class='text-red-600'>Error: ${err.message}</span>`;
+      }
+    };
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 <script src="sai_math.js"></script>
 <script src="sai.js"></script>
+                
 </body>
 </html>
