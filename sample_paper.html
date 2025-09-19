@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate AI Sample Papers - SAI Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+<!-- Navigation Bar -->
+<nav class="bg-white border-b border-gray-200 fixed w-full z-20 top-0 left-0">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="home.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap">SAI Assistant</span>
+        </a>
+        <button id="menu-toggle" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+                <li><a href="home.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Home</a></li>
+                <li><a href="about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">About</a></li>
+                <li><a href="features.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Features</a></li>
+                <li><a href="sample_paper.html" class="block py-2 px-3 text-blue-700 font-semibold rounded bg-blue-100 md:bg-transparent md:text-blue-700">Sample Papers</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="max-w-3xl mx-auto pt-32 pb-16 px-6">
+    <div class="bg-white rounded-2xl shadow-xl p-8">
+        <h1 class="text-3xl font-extrabold text-blue-700 mb-4 flex items-center gap-3">
+            <img src="https://img.icons8.com/color/48/paper.png" alt="Sample Paper" class="w-8 h-8"> 
+            Generate AI Sample Papers
+        </h1>
+        <p class="text-gray-700 mb-6">Choose a subject and grade to instantly generate a customized sample paper. (Demo version, future: AI-powered questions!)</p>
+
+        <form id="samplePaperForm" class="flex gap-4 flex-wrap items-center mb-4">
+            <select id="subjectSelect" class="border rounded px-3 py-2">
+                <option value="">Subject</option>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="English">English</option>
+                <option value="Social Studies">Social Studies</option>
+            </select>
+            <select id="gradeSelect" class="border rounded px-3 py-2">
+                <option value="">Grade</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Generate</button>
+        </form>
+        <div id="samplePaperResult" class="mt-4"></div>
+    </div>
+</div>
+
+<script>
+document.getElementById('menu-toggle').onclick = function() {
+  var nav = document.getElementById('navbar-default');
+  nav.classList.toggle('hidden');
+};
+
+// Sample Paper JS Logic (frontend-only for demo)
+const QUESTION_BANK = {
+  Math: [
+    "Solve: 2x + 3 = 7",
+    "Differentiate: x^2 + 3x",
+    "Integrate: 5x dx",
+    "Simplify: (x+2)(x-2)"
+  ],
+  Science: [
+    "What is Newton's Second Law?",
+    "Describe the structure of an atom.",
+    "Explain photosynthesis.",
+    "What is Ohm's Law?"
+  ],
+  English: [
+    "Write a summary of any Shakespeare play.",
+    "Explain the meaning of 'metaphor'.",
+    "Correct the sentence: 'He go to school.'",
+    "What is the theme of the poem 'Daffodils'?"
+  ],
+  "Social Studies": [
+    "Explain the causes of World War II.",
+    "What is democracy?",
+    "Describe the Mughal Empire.",
+    "What is the Constitution?"
+  ]
+};
+
+document.getElementById('samplePaperForm').onsubmit = function(e) {
+    e.preventDefault();
+    const subject = document.getElementById('subjectSelect').value;
+    const grade = document.getElementById('gradeSelect').value;
+    const resultDiv = document.getElementById('samplePaperResult');
+    if (!subject || !grade) {
+        resultDiv.innerHTML = "<span class='text-red-600'>Please select both subject and grade.</span>";
+        return;
+    }
+    let questions = QUESTION_BANK[subject] || [];
+    let html = `<div class='mb-2 font-bold text-lg'>${subject} (Grade ${grade})</div>`;
+    html += "<ol class='list-decimal ml-6'>";
+    for (const q of questions) {
+        html += `<li class='mb-2'>${q}</li>`;
+    }
+    html += "</ol>";
+    resultDiv.innerHTML = html;
+};
+</script>
+</body>
+</html>
