@@ -6,30 +6,12 @@
     <title>SAI Chat Assistant - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .typing-animation {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #6b7280;
-            animation: typing 1.4s infinite ease-in-out;
-        }
+        .typing-animation { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #6b7280; animation: typing 1.4s infinite ease-in-out; }
         .typing-animation:nth-child(1) { animation-delay: -0.32s; }
         .typing-animation:nth-child(2) { animation-delay: -0.16s; }
-        
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
-            40% { transform: scale(1); opacity: 1; }
-        }
-        
-        .message-enter {
-            animation: messageSlide 0.3s ease-out;
-        }
-        
-        @keyframes messageSlide {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes typing { 0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
+        .message-enter { animation: messageSlide 0.3s ease-out; }
+        @keyframes messageSlide { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -37,24 +19,20 @@
 <!-- Navigation Bar -->
 <nav class="bg-white border-b border-gray-200 fixed w-full z-20 top-0 left-0">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <!-- Logo / Brand -->
         <a href="home.html" class="flex items-center space-x-2 rtl:space-x-reverse">
             <span class="self-center text-2xl font-semibold whitespace-nowrap">SAI Assistant</span>
         </a>
-        <!-- Hamburger Button (Mobile) -->
         <button id="menu-toggle" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2">
             <span class="sr-only">Open main menu</span>
             <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
             </svg>
         </button>
-        <!-- Menu Links -->
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
                 <li><a href="home.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Home</a></li>
                 <li><a href="about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">About</a></li>
                 <li><a href="features.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Features</a></li>
-                <li><a href="contact.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Contact</a></li>
             </ul>
         </div>
     </div>
@@ -67,7 +45,7 @@
         <div class="flex items-start space-x-3 message-enter">
             <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072[...]"/>
                 </svg>
             </div>
             <div class="bg-white rounded-lg px-4 py-3 shadow-sm border border-gray-200 max-w-3xl">
@@ -76,7 +54,6 @@
             </div>
         </div>
     </div>
-
     <!-- Input Area -->
     <div class="sticky bottom-0 bg-gray-50 pt-4">
         <div class="bg-white rounded-lg border border-gray-300 shadow-sm">
@@ -106,12 +83,11 @@
 
 <script>
     // Hamburger menu
-    const menuToggle = document.getElementById("menu-toggle"); 
-    const navbar = document.getElementById("navbar-default"); 
-    menuToggle.addEventListener("click", () => { 
-        navbar.classList.toggle("hidden"); 
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar-default");
+    menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("hidden");
     });
-
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('messageInput').focus();
     });
