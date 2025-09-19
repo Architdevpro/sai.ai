@@ -67,14 +67,30 @@
     });
 
     // Contact form logic
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
         e.preventDefault();
-        document.getElementById('contact-success').classList.remove('hidden');
-        setTimeout(() => {
-            document.getElementById('contact-success').classList.add('hidden');
-            window.location.href = "home.html";
-        }, 2000);
-        this.reset();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('contact-message').value;
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+            });
+            if (response.ok) {
+                document.getElementById('contact-success').classList.remove('hidden');
+                setTimeout(() => {
+                    document.getElementById('contact-success').classList.add('hidden');
+                    window.location.href = "home.html";
+                }, 2000);
+                this.reset();
+            } else {
+                alert('Failed to send contact. Please try again.');
+            }
+        } catch (err) {
+            alert('Error sending contact. Please try again.');
+        }
     });
 </script>
 </body>
