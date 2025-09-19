@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Features of SAI - Smart Artificial Intelligence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-blue-100 min-h-screen">
 
+<!-- Navigation Bar -->
+<nav class="bg-white border-b border-gray-200 fixed w-full z-20 top-0 left-0 shadow">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="home.html" class="flex items-center space-x-2 rtl:space-x-reverse">
+            <span class="self-center text-2xl font-bold text-blue-700">SAI Assistant</span>
+        </a>
+        <button id="menu-toggle" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+                <li><a href="home.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">Home</a></li>
+                <li><a href="about.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600">About</a></li>
+                <li><a href="features.html" class="block py-2 px-3 text-blue-700 font-semibold rounded bg-blue-100 md:bg-transparent md:text-blue-700">Features</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="max-w-3xl mx-auto pt-32 pb-16 px-6">
+    <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="flex items-center mb-6">
+            <img src="https://img.icons8.com/color/96/artificial-intelligence.png" alt="AI icon" class="w-16 h-16 mr-4">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-blue-700">SAI Features</h1>
+        </div>
+        <p class="text-lg text-gray-700 mb-6">
+            SAI offers a wide range of features designed to make learning interactive, personalized, and fun for students, teachers, and parents.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-blue-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/paper.png" alt="Sample Papers">
+                <div>
+                    <span class="font-bold text-blue-700">AI-Generated Sample Papers:</span>
+                    <p class="text-gray-700 text-sm">Practice with customized sample papers for all main subjects, tailored for your grade.</p>
+                </div>
+            </div>
+            <div class="bg-purple-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/quiz.png" alt="Quizzes">
+                <div>
+                    <span class="font-bold text-purple-700">Interactive Quizzes:</span>
+                    <p class="text-gray-700 text-sm">Test your knowledge with instant feedback and progress tracking.</p>
+                </div>
+            </div>
+            <div class="bg-green-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/test-passed.png" alt="Tests">
+                <div>
+                    <span class="font-bold text-green-700">Full-Length Tests:</span>
+                    <p class="text-gray-700 text-sm">Simulate real exam conditions with leaderboards and analytics.</p>
+                </div>
+            </div>
+            <div class="bg-yellow-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/brain.png" alt="Adaptive Learning">
+                <div>
+                    <span class="font-bold text-yellow-700">Hyper-Adaptive Learning Paths:</span>
+                    <p class="text-gray-700 text-sm">AI adapts the content based on your performance for focused improvement.</p>
+                </div>
+            </div>
+            <div class="bg-indigo-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/help.png" alt="Doubt Resolver">
+                <div>
+                    <span class="font-bold text-indigo-700">Real-Time Doubt Resolver:</span>
+                    <p class="text-gray-700 text-sm">Instant help for any academic question, anytime!</p>
+                </div>
+            </div>
+            <div class="bg-pink-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/combo-chart.png" alt="Analytics">
+                <div>
+                    <span class="font-bold text-pink-700">Smart Predictive Analytics:</span>
+                    <p class="text-gray-700 text-sm">Advanced dashboards predict performance and highlight focus areas.</p>
+                </div>
+            </div>
+            <div class="bg-orange-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/trophy.png" alt="Gamified Learning">
+                <div>
+                    <span class="font-bold text-orange-700">Gamified Learning System:</span>
+                    <p class="text-gray-700 text-sm">Earn points, badges, and levels to stay motivated.</p>
+                </div>
+            </div>
+            <div class="bg-teal-50 rounded-xl p-5 flex gap-4 items-start">
+                <img src="https://img.icons8.com/color/48/admin-settings-male.png" alt="Admin Panel">
+                <div>
+                    <span class="font-bold text-teal-700">Admin Panel:</span>
+                    <p class="text-gray-700 text-sm">Educators and administrators can manage and monitor student progress efficiently.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-50 to-purple-100 rounded-xl p-6 mb-8 shadow flex items-start gap-6">
+            <img src="https://img.icons8.com/color/64/artificial-intelligence.png" alt="AI Assistance" class="w-12 h-12">
+            <div>
+                <h2 class="text-xl font-bold text-blue-700 mb-2">🚀 Revolutionary New Feature: Context-Aware AI Assistance</h2>
+                <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                    <li><strong>In-Quiz AI Help:</strong> Get hints or explanations during quizzes without leaving your session.</li>
+                    <li><strong>In-Test AI Support:</strong> Real-time tutoring available during tests (if enabled by your admin).</li>
+                    <li><strong>Sample Paper AI Tutor:</strong> Receive instant help on any question in sample papers.</li>
+                    <li><strong>Admin Control:</strong> Teachers can enable/disable AI assistance for each quiz or test as needed.</li>
+                    <li><strong>Context-Aware Learning:</strong> AI understands the question you’re working on and provides tailored support.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="text-xl font-bold text-purple-700 mb-3">Why Choose SAI?</h2>
+        <ul class="list-disc ml-6 text-gray-700 space-y-2 mb-6">
+            <li>Adaptive, personalized learning experiences.</li>
+            <li>Comprehensive curriculum coverage (CBSE, ICSE, State Boards).</li>
+            <li>Instant performance tracking & doubt resolution.</li>
+            <li>Fun gamification elements.</li>
+            <li>Real-time AI help during assessments—a first in the industry!</li>
+        </ul>
+        <div class="bg-blue-50 rounded-xl p-5 flex items-center gap-4">
+            <img src="https://img.icons8.com/color/48/help.png" alt="Help">
+            <p class="text-blue-700 font-medium">
+                SAI is designed to support students, educators, and parents in making learning more effective, enjoyable, and stress-free.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+              </html>
