@@ -46,7 +46,7 @@
         <div class="flex items-start space-x-3 message-enter">
             <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547"></path>
                 </svg>
             </div>
             <div class="bg-white rounded-lg px-4 py-3 shadow-sm border border-gray-200 max-w-3xl">
@@ -64,12 +64,12 @@
                     placeholder="Type your message here..." 
                     class="flex-1 resize-none border-0 focus:ring-0 focus:outline-none text-gray-800 placeholder-gray-500 max-h-32"
                     rows="1"
-                    onkeydown="handleKeyDown(event)" <!-- Calls sai.js -->
-                    oninput="autoResize(this)" <!-- Calls sai.js -->
+                    onkeydown="handleKeyDown(event)"
+                    oninput="autoResize(this)"
                 ></textarea>
                 <button 
                     id="sendButton"
-                    onclick="sendMessage()" <!-- Calls sai.js -->
+                    onclick="sendMessage()"
                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,9 +86,11 @@
     // Hamburger menu for mobile
     const menuToggle = document.getElementById("menu-toggle");
     const navbar = document.getElementById("navbar-default");
-    menuToggle.addEventListener("click", () => {
-        navbar.classList.toggle("hidden");
-    });
+    if (menuToggle && navbar) {
+        menuToggle.addEventListener("click", () => {
+            navbar.classList.toggle("hidden");
+        });
+    }
 
     // Focus the input on page load
     document.addEventListener('DOMContentLoaded', function() {
